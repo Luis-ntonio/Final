@@ -9,10 +9,18 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Controllers.Din_fifa_controller import Din_fifa
+from Views.Insertar_fifa import Ui_insert_fifa
+from Views.Search1 import Ui_search1
+from Views.Eliminar import Ui_Delete
+#from Views.Select_csv import Ui_Form
 
 
 class Ui_Dinamyc_fifa(object):
-    def setupUi(self, Dinamyc_fifa):
+    def __init__(self, parent):
+        self.parent = parent
+        self.connect = Din_fifa(self,"fifa")
+    def setupUi(self, Dinamyc_fifa):    
         Dinamyc_fifa.setObjectName("Dinamyc_fifa")
         Dinamyc_fifa.resize(559, 377)
         self.centralwidget = QtWidgets.QWidget(Dinamyc_fifa)
@@ -94,6 +102,13 @@ class Ui_Dinamyc_fifa(object):
         self.statusbar = QtWidgets.QStatusBar(Dinamyc_fifa)
         self.statusbar.setObjectName("statusbar")
         Dinamyc_fifa.setStatusBar(self.statusbar)
+#-----------------------------------------------EVENTS---------------------------------------------------------------------------------#
+        self.x = self.btn_insert.clicked.connect(lambda:self.connect.call_insert(Ui_insert_fifa))
+        self.x = self.btn_search1.clicked.connect(lambda:self.connect.call_search1(Ui_search1))
+        self.x = self.btn_delete.clicked.connect(lambda:self.connect.call_eliminar(Ui_Delete))
+        self.x = self.btn_back.clicked.connect(lambda:self.connect.call_back(self.parent, Dinamyc_fifa))
+
+#---------------------------------------------END_EVENTS--------------------------------------------------------------------------------#
 
         self.retranslateUi(Dinamyc_fifa)
         QtCore.QMetaObject.connectSlotsByName(Dinamyc_fifa)

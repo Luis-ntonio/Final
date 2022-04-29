@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>264</width>
-    <height>441</height>
+    <width>274</width>
+    <height>749</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>10</y>
-     <width>261</width>
-     <height>421</height>
+     <width>271</width>
+     <height>731</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -38,23 +38,113 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>10</x>
      <y>70</y>
-     <width>241</width>
-     <height>354</height>
+     <width>257</width>
+     <height>660</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="0">
-     <widget class="QLabel" name="DWR">
+    <item row="8" column="0">
+     <widget class="QLabel" name="PAS">
       <property name="text">
-       <string>DWR</string>
+       <string>PAS</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="SHO">
+    <item row="11" column="0">
+     <widget class="QLabel" name="PHY">
       <property name="text">
-       <string>SHO</string>
+       <string>Phy</string>
       </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QComboBox" name="inp_awr">
+      <item>
+       <property name="text">
+        <string>Seleccionar opcion</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>High</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Medium</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Low</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NA</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="OVR">
+      <property name="text">
+       <string>OVR</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLineEdit" name="inp_pac">
+      <property name="placeholderText">
+       <string>0-97</string>
+      </property>
+     </widget>
+    </item>
+    <item row="18" column="0">
+     <widget class="QLabel" name="SPD">
+      <property name="text">
+       <string>Spd</string>
+      </property>
+     </widget>
+    </item>
+    <item row="17" column="0">
+     <widget class="QLabel" name="KIC">
+      <property name="text">
+       <string>Kic</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="inp_ovr">
+      <property name="placeholderText">
+       <string>47 - 98</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="Foot">
+      <property name="text">
+       <string>Foot</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="inp_foot">
+      <item>
+       <property name="text">
+        <string>seleccionar opcion</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>R</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>L</string>
+       </property>
+      </item>
      </widget>
     </item>
     <item row="2" column="1">
@@ -141,33 +231,109 @@ p, li { white-space: pre-wrap; }
       </item>
      </widget>
     </item>
-    <item row="3" column="1">
-     <widget class="QComboBox" name="inp_awr">
-      <item>
-       <property name="text">
-        <string>Seleccionar opcion</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>High</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Medium</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Low</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>NA</string>
-       </property>
-      </item>
+    <item row="9" column="1">
+     <widget class="QLineEdit" name="inp_dri">
+      <property name="placeholderText">
+       <string>0-97</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="inp_sho">
+      <property name="placeholderText">
+       <string>0-96</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="PAC">
+      <property name="text">
+       <string>PAC</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="1">
+     <widget class="QLineEdit" name="inp_def">
+      <property name="placeholderText">
+       <string>0-96</string>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="0">
+     <widget class="QLabel" name="SM">
+      <property name="text">
+       <string>SM</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="DWR">
+      <property name="text">
+       <string>DWR</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="SHO">
+      <property name="text">
+       <string>SHO</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="inp_id">
+      <property name="placeholderText">
+       <string>ej: Pele</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QLineEdit" name="inp_pas">
+      <property name="placeholderText">
+       <string>0-96</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="DRI">
+      <property name="text">
+       <string>Dri</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="AWR">
+      <property name="text">
+       <string>AWR</string>
+      </property>
+     </widget>
+    </item>
+    <item row="13" column="0">
+     <widget class="QLabel" name="DIV">
+      <property name="text">
+       <string>Div</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="Id">
+      <property name="text">
+       <string>Id</string>
+      </property>
+     </widget>
+    </item>
+    <item row="15" column="0">
+     <widget class="QLabel" name="HAN">
+      <property name="text">
+       <string>Han</string>
+      </property>
+     </widget>
+    </item>
+    <item row="19" column="0" colspan="2">
+     <widget class="QPushButton" name="btn_insertar">
+      <property name="text">
+       <string>Insertar</string>
+      </property>
      </widget>
     </item>
     <item row="4" column="1">
@@ -199,38 +365,10 @@ p, li { white-space: pre-wrap; }
       </item>
      </widget>
     </item>
-    <item row="5" column="1">
-     <widget class="QLineEdit" name="inp_ovr">
-      <property name="placeholderText">
-       <string>47 - 98</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="Foot">
+    <item row="16" column="0">
+     <widget class="QLabel" name="REF">
       <property name="text">
-       <string>Foot</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QLabel" name="OVR">
-      <property name="text">
-       <string>OVR</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="PAC">
-      <property name="text">
-       <string>PAC</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
-     <widget class="QLineEdit" name="inp_sho">
-      <property name="placeholderText">
-       <string>0-96</string>
+       <string>Ref</string>
       </property>
      </widget>
     </item>
@@ -241,85 +379,73 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QComboBox" name="inp_foot">
-      <item>
-       <property name="text">
-        <string>seleccionar opcion</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>R</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>L</string>
-       </property>
-      </item>
+    <item row="14" column="0">
+     <widget class="QLabel" name="POS">
+      <property name="text">
+       <string>Pos</string>
+      </property>
      </widget>
     </item>
-    <item row="6" column="1">
-     <widget class="QLineEdit" name="inp_pac">
+    <item row="10" column="0">
+     <widget class="QLabel" name="DEF">
+      <property name="text">
+       <string>Def</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="1">
+     <widget class="QLineEdit" name="inp_phy">
       <property name="placeholderText">
-       <string>0-97</string>
+       <string>0-92</string>
       </property>
      </widget>
     </item>
-    <item row="8" column="0">
-     <widget class="QLabel" name="PAS">
-      <property name="text">
-       <string>PAS</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="Id">
-      <property name="text">
-       <string>Id</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="inp_id">
+    <item row="12" column="1">
+     <widget class="QLineEdit" name="inp_dri_4">
       <property name="placeholderText">
-       <string>ej: Pele</string>
+       <string>0-5</string>
       </property>
      </widget>
     </item>
-    <item row="8" column="1">
-     <widget class="QLineEdit" name="inp_pas">
+    <item row="13" column="1">
+     <widget class="QLineEdit" name="inp_dri_5">
       <property name="placeholderText">
-       <string>0-96</string>
+       <string>60-70</string>
       </property>
      </widget>
     </item>
-    <item row="10" column="0" colspan="2">
-     <widget class="QPushButton" name="btn_insertar">
-      <property name="text">
-       <string>Insertar</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="AWR">
-      <property name="text">
-       <string>AWR</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="0">
-     <widget class="QLabel" name="DRI">
-      <property name="text">
-       <string>PAS</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="1">
-     <widget class="QLineEdit" name="inp_dri">
+    <item row="14" column="1">
+     <widget class="QLineEdit" name="inp_pos">
       <property name="placeholderText">
-       <string>0-97</string>
+       <string>60-70</string>
+      </property>
+     </widget>
+    </item>
+    <item row="15" column="1">
+     <widget class="QLineEdit" name="inp_han">
+      <property name="placeholderText">
+       <string>60-70</string>
+      </property>
+     </widget>
+    </item>
+    <item row="16" column="1">
+     <widget class="QLineEdit" name="inp_ref">
+      <property name="placeholderText">
+       <string>60-70</string>
+      </property>
+     </widget>
+    </item>
+    <item row="17" column="1">
+     <widget class="QLineEdit" name="inp_kic">
+      <property name="placeholderText">
+       <string>60-70</string>
+      </property>
+     </widget>
+    </item>
+    <item row="18" column="1">
+     <widget class="QLineEdit" name="inp_spd">
+      <property name="placeholderText">
+       <string>30-45</string>
       </property>
      </widget>
     </item>
