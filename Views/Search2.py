@@ -18,8 +18,10 @@ from Controllers.Search2_controller import Search2
 
 
 class Ui_search2(object):
-    def __init__(self,tabla):
-        self.connect = Search2(tabla)
+    def __init__(self,tabla,rep):
+        
+        self.connect = Search2(tabla,rep)
+
     def setupUi(self, search2):
         search2.setObjectName("search2")
         search2.resize(217, 184)

@@ -24,6 +24,27 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_4">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="btn_insert">
+       <property name="text">
+        <string>Insert</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="btn_back">
+       <property name="text">
+        <string>Back</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="btn_delete">
+       <property name="text">
+        <string>Delete</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="0">
       <widget class="QPushButton" name="btn_search1">
        <property name="text">
@@ -32,23 +53,9 @@
       </widget>
      </item>
      <item row="2" column="0">
-      <widget class="QPushButton" name="btn_delete">
+      <widget class="QPushButton" name="btn_search2">
        <property name="text">
-        <string>Delete</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QPushButton" name="btn_insert">
-       <property name="text">
-        <string>Insert</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QPushButton" name="btn_back">
-       <property name="text">
-        <string>Back</string>
+        <string>Search by range</string>
        </property>
       </widget>
      </item>

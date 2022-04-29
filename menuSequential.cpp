@@ -21,6 +21,7 @@ const std::string cereal = "cereal";
 const std::string fifa = "FIFA22_PlayerCards_Format";
 
 #include<stdio.h>
+#include<cstring>
 
 
 extern "C"
@@ -130,18 +131,28 @@ bool remove_S_Cereal(char* key){
     return true;
 }
 extern "C"
-char* rangeSearch_S_Cereal(char* inicio, char* fin, char* result){
+char* rangeSearch_S_Cereal(char* inicio, char* fin, char* result,char*aux){
     SequentialFile<Registros::Cereal> sf(cereal);
     try
     {
 
         std::vector<Registros::Cereal> listaRegistros = sf.rangeSearch(inicio, fin);
-        std::string aux = "";
+        int temp=0 ;
         for(Registros::Cereal i: listaRegistros){
-            i.writeCSVLine2(result);
+            i.writeCSVLine2(aux);
+            
+            if (temp ==0){
+                temp++;
+                strcpy(result,aux);
+            }
+            else{
+                strcat(result,aux);
+            }
+            
             
             
         }
+        
         return result;
     }
     catch(...)
@@ -150,8 +161,9 @@ char* rangeSearch_S_Cereal(char* inicio, char* fin, char* result){
     }
 }
 int main(){
-    char result [100];
-    search_S_Cereal("Apple Cinnamon Cheerios", result);
-    std::cout<<result;
+    char aux[150];
+    char result [10000];
+    rangeSearch_S_Cereal("Apple Cinnamon Cheerios", "Grape Nuts Flakes",result,aux);
+    std::cout<<result<<std::endl;
 }
 #endif

@@ -7,7 +7,7 @@ from PyQt5 import QtWidgets
 from Database.Connection import connection
 from Views.Dinamyc_cereal import Ui_DInamyc_cereal
 from Views.Dinamyc_fifa import Ui_Dinamyc_fifa
-from Views.Sequential_cereal import Ui_sequential_cereal
+from Views.sequential_cereal import Ui_sequential_cereal
 from Views.Sequential_fifa import Ui_sequential_fifa
 
 class Principal_controller():

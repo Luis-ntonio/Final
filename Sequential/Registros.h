@@ -142,7 +142,7 @@ char* Registros::Cereal::writeCSVLine(char* result){
 }
 char* Registros::Cereal::writeCSVLine2(char* result){
     
-    sprintf(result, "%s,%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f,%f,%f,'\n'", id, mfr, type, calories, protein, fat, sodium, fiber, carbo, sugars, potass, vitamins, shelf, weight, cups, rating);
+    sprintf(result, "%s,%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f,%f,%f|", id, mfr, type, calories, protein, fat, sodium, fiber, carbo, sugars, potass, vitamins, shelf, weight, cups, rating);
     return result;
 }
 
