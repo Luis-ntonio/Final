@@ -20,14 +20,13 @@
 const std::string cereal = "cereal";
 const std::string fifa = "FIFA22_PlayerCards_Format";
 
-
+#include<stdio.h>
 
 
 extern "C"
-bool insert_S_Fifa(char* line){
-    std::string str(line);
+bool insert_S_Fifa(std::string line){
     Registros::CartaFifa traduccion;
-    traduccion.readCSVLine(str);
+    traduccion.readCSVLine(line);
     SequentialFile<Registros::CartaFifa> sf(fifa);
     try{
         sf.add(traduccion);
@@ -38,13 +37,16 @@ bool insert_S_Fifa(char* line){
     return true;
 }
 extern "C"
-void search_S_Fifa(char* key,char* result){
+char* search_S_Fifa(char* key,char* aux){
     SequentialFile<Registros::CartaFifa> sf(fifa);
     try{
         std::string str(key);
         Registros::CartaFifa objetivo = sf.search(key);
-        std::string retorno = objetivo.writeCSVLine();
-        result = &retorno[0];
+        
+        char* retorno = objetivo.writeCSVLine(aux);
+    
+        
+        return aux;
         
     }
     catch(...){
@@ -53,11 +55,10 @@ void search_S_Fifa(char* key,char* result){
 }
 extern "C"
 bool remove_S_Fifa(char* key){
-    std::string str(key);
     SequentialFile<Registros::CartaFifa> sf(fifa);
     try
     {
-        sf.remove(str);
+        sf.remove(key);
     }
     catch(...)
     {
@@ -66,34 +67,29 @@ bool remove_S_Fifa(char* key){
     return true;
 }
 extern "C"
-void rangeSearch_S_Fifa(char* inicio, char* fin,char* result){
+char* rangeSearch_S_Fifa(char* inicio, char* fin, char* result){
     SequentialFile<Registros::CartaFifa> sf(fifa);
     try
     {
         std::string start(inicio);
         std::string end(fin);
         std::vector<Registros::CartaFifa> listaRegistros = sf.rangeSearch(start, end);
-        std::string aux = "";
+        
         for(Registros::CartaFifa i: listaRegistros){
-            aux.append(i.writeCSVLine());
-            aux.append("\n");
+            i.writeCSVLine(result);
         }
-        
-        
-        result = &aux[0];
-        
+        return result;
     }
     catch(...)
     {
-        throw "error";
+        return "";
     }
 }
 
 extern "C"
 bool insert_S_Cereal(char* line){
-    std::string str(line);
     Registros::Cereal traduccion;
-    traduccion.readCSVLine(str);
+    traduccion.readCSVLine(line);
     SequentialFile<Registros::Cereal> sf(cereal);
     try{
         sf.add(traduccion);
@@ -104,28 +100,23 @@ bool insert_S_Cereal(char* line){
     return true;
 }
 extern "C"
-void search_S_Cereal(char* key, char* result){
+char* search_S_Cereal(char* key, char* result){
     SequentialFile<Registros::Cereal> sf(cereal);
     try{
-        std::string str(key);
-        Registros::Cereal objetivo = sf.search(str);
-        std::string retorno = objetivo.writeCSVLine();
-        std::cout<<retorno;
-        
-        result = &retorno[0];
-        
+        Registros::Cereal objetivo = sf.search(key);
+        objetivo.writeCSVLine(result);
+        return result;
     }
     catch(...){
-        throw "error";
+        return "";
     }
 }
 extern "C"
-bool remove_S_Cereal(std::string key){
-    std::string str(key);
+bool remove_S_Cereal(char* key){
     SequentialFile<Registros::Cereal> sf(cereal);
     try
     {
-        sf.remove(str);
+        sf.remove(key);
     }
     catch(...)
     {
@@ -134,24 +125,28 @@ bool remove_S_Cereal(std::string key){
     return true;
 }
 extern "C"
-void rangeSearch_S_Cereal(char* inicio, char* fin, char* result){
+char* rangeSearch_S_Cereal(char* inicio, char* fin, char* result){
     SequentialFile<Registros::Cereal> sf(cereal);
     try
     {
-        std::string start(inicio);
-        std::string end(fin);
-        std::vector<Registros::Cereal> listaRegistros = sf.rangeSearch(start, end);
+
+        std::vector<Registros::Cereal> listaRegistros = sf.rangeSearch(inicio, fin);
         std::string aux = "";
         for(Registros::Cereal i: listaRegistros){
-            aux += i.writeCSVLine();
-            aux += "\n";
+            i.writeCSVLine(result);
+            
+            
         }
-        result = &aux[0];
+        return result;
     }
     catch(...)
     {
-        throw "error";
+        return "";
     }
 }
-
+int main(){
+    char result [100];
+    rangeSearch_S_Fifa("1","1",result);
+    std::cout<<result;
+}
 #endif

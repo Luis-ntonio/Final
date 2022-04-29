@@ -6,6 +6,7 @@ sys.path.append(myDir)
 class select():
     def __init__(self, conn, tabla, create = 1):
         self.conn = conn
+        self.tabla = tabla
         if(tabla == "btn_fifa" and create == 0):
             with self.conn.cursor() as cursor:
                 sql = """DROP TABLE IF EXISTS proyectotable;"""
@@ -25,4 +26,11 @@ class select():
                             Azucares INT, Potasio INT, Vitaminas INT, Disposicion INT, Peso FLOAT, Tazas FLOAT, Rating FLOAT);"""
                 cursor.execute(sql)
                 self.conn.commit()
-       
+    def search(self, cadena):
+        with self.conn.cursor() as cursor:
+            if(self.tabla == "fifa"):
+                
+                sql = """"""
+                cursor.execute(sql)
+                self.conn.commit()
+            

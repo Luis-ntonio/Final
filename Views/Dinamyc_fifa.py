@@ -104,7 +104,7 @@ class Ui_Dinamyc_fifa(object):
         Dinamyc_fifa.setStatusBar(self.statusbar)
 #-----------------------------------------------EVENTS---------------------------------------------------------------------------------#
         self.x = self.btn_insert.clicked.connect(lambda:self.connect.call_insert(Ui_insert_fifa))
-        self.x = self.btn_search1.clicked.connect(lambda:self.connect.call_search1(Ui_search1))
+        self.x = self.btn_search1.clicked.connect(lambda:self.connect.call_search1(self.table,Ui_search1))
         self.x = self.btn_delete.clicked.connect(lambda:self.connect.call_eliminar(Ui_Delete))
         self.x = self.btn_back.clicked.connect(lambda:self.connect.call_back(self.parent, Dinamyc_fifa))
 
