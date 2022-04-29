@@ -19,15 +19,22 @@ class Seq_fifa():
         self.principal.Form.show()
         
 
-    def call_search1(self, search1):
+
+    def call_search1(self,rep, search1):
         self.principal.Form = QtWidgets.QWidget()
-        self.principal.ui = search1("fifa")
+        self.principal.ui = search1("fifa",rep,"Seq")
+        self.principal.ui.setupUi(self.principal.Form)
+        self.principal.Form.show()
+
+    def call_search2(self,rep, search2):
+        self.principal.Form = QtWidgets.QWidget()
+        self.principal.ui = search2("fifa",rep)
         self.principal.ui.setupUi(self.principal.Form)
         self.principal.Form.show()
     
     def call_eliminar(self, eliminar):
         self.principal.Form = QtWidgets.QWidget()
-        self.principal.ui = eliminar("fifa")
+        self.principal.ui = eliminar("fifa","Seq")
         self.principal.ui.setupUi(self.principal.Form)
         self.principal.Form.show()
 

@@ -29,7 +29,7 @@ class Search2():
     def search2(self, inicio, final, close):
         result = ctypes.create_string_buffer(10000)
         aux = ctypes.create_string_buffer(150)
-        if(self.tabla == "fifa"):
+        if(self.tabla_ == "fifa"):
             x = mylib.rangeSearch_S_Fifa(str(inicio).encode('utf-8'),str(final).encode('utf-8'),result,aux)
         else:
             x = mylib.rangeSearch_S_Cereal(str(inicio).encode('utf-8'),str(final).encode('utf-8'),result,aux)
@@ -41,10 +41,15 @@ class Search2():
         column_number=0
         row_number = 0
         for data in x:
+           
             y = data.split(',')
-            for data in y:
-                tabla.setItem(row_number,column_number,QtWidgets.QTableWidgetItem(data))
+            for data in range(len(y)):
+                print(y[data])
+                if column_number< len(y):
+                    tabla.setItem(row_number,column_number,QtWidgets.QTableWidgetItem(y[data]))
 
                 column_number+=1
             row_number += 1
+            column_number = 0
+            print("1linea")
         close.hide()

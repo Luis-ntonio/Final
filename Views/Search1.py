@@ -18,9 +18,9 @@ from Controllers.Search1_controller import Search1
 
 
 class Ui_search1(object):
-    def __init__(self, table, rep):
+    def __init__(self, table, rep,din_seq):
         
-        self.connect = Search1(table,rep)
+        self.connect = Search1(table,rep,din_seq)
     def setupUi(self, search1):
         search1.setObjectName("search1")
         search1.resize(217, 188)

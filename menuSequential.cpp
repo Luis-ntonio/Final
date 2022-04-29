@@ -28,7 +28,8 @@ extern "C"
 bool insert_S_Fifa(char* line){
     Registros::CartaFifa traduccion;
     std::string str(line);
-    traduccion.readCSVLine(line);
+    std::cout<<str;
+    traduccion.readCSVLine(str);
     SequentialFile<Registros::CartaFifa> sf(fifa);
     try{
         sf.add(traduccion);
@@ -61,7 +62,7 @@ bool remove_S_Fifa(char* key){
     std::string str(key);
     try
     {
-        sf.remove(key);
+        sf.remove(str);
     }
     catch(...)
     {
@@ -93,7 +94,7 @@ extern "C"
 bool insert_S_Cereal(char* line){
     Registros::Cereal traduccion;
     std::string str(line);
-    traduccion.readCSVLine(line);
+    traduccion.readCSVLine(str);
     SequentialFile<Registros::Cereal> sf(cereal);
     try{
         sf.add(traduccion);
@@ -122,7 +123,7 @@ bool remove_S_Cereal(char* key){
     std::string str(key);
     try
     {
-        sf.remove(key);
+        sf.remove(str);
     }
     catch(...)
     {

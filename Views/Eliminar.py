@@ -18,8 +18,8 @@ from Controllers.Eliminar_controller import Eliminar
 
 
 class Ui_Delete(object):
-    def __init__(self,tabla):
-        self.connect = Eliminar(tabla)
+    def __init__(self,tabla,din_seq):
+        self.connect = Eliminar(tabla,din_seq)
     def setupUi(self, Delete):
         Delete.setObjectName("Delete")
         Delete.resize(217, 193)

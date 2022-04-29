@@ -8,7 +8,7 @@ from Database.Connection import connection
 from Views.Dinamyc_cereal import Ui_DInamyc_cereal
 from Views.Dinamyc_fifa import Ui_Dinamyc_fifa
 from Views.sequential_cereal import Ui_sequential_cereal
-from Views.Sequential_fifa import Ui_sequential_fifa
+from Views.sequential_fifa import Ui_sequential_fifa
 
 class Principal_controller():
     def __init__(self, connect) :

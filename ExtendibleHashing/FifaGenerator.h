@@ -5,24 +5,25 @@
 #include "ExtendibleHashing.h"
 using namespace std;
 
-std::string Registros::CartaFifa::writeCSVLine(){
-    char result[100];
-    sprintf(result, "%s,%c,%s,%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d", id, foot, position, awr, dwr, ovr, pac, sho, pas, dri, def, phy, sm, div, pos, han, ref, kic, spd);
-    return std::string(result);
+char* Registros::CartaFifa::writeCSVLine(char* returned){
+    
+    sprintf(returned, "%s,%c,%s,%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d", id, foot, position, awr, dwr, ovr, pac, sho, pas, dri, def, phy, sm, div, pos, han, ref, kic, spd);
+    return returned;
 }
 
-std::string readAt(long pos) {
+char* readAt(long pos, char* returned) {
   Registros::CartaFifa fifa;
-  ifstream fin("fifa.dat", ios::binary);
+  ifstream fin("./fifa.dat", ios::binary);
   if (!fin.is_open()) throw ("File not open");
   fin.seekg(pos, ios::beg);
   fin >> fifa;
   fifa.show();
-  return fifa.writeCSVLine();
+  fifa.writeCSVLine(returned);
+  return returned;
 }
 
 void read_all_from_dat() {
-  ifstream fin("fifa.dat", ios::binary | ios::in);
+  ifstream fin("./fifa.dat", ios::binary | ios::in);
   if (!fin.is_open()) {
     throw runtime_error("Could not open file");
   }
@@ -39,14 +40,14 @@ void read_all_from_dat() {
 }
 
 void generate_fifa_dat() {
-  ifstream fin("fifa.csv");
+  ifstream fin("./fifa.csv");
   if (!fin.is_open()) {
     cout << "Error al abrir el archivo" << endl;
     return;
   }
   Registros::CartaFifa fifa;
   std::string line;
-  ofstream fout("fifa.dat", ios::binary | ios::out | ios::in | ios::app);
+  ofstream fout("./fifa.dat", ios::binary | ios::out | ios::in | ios::app);
   if (!fout.is_open()) {
     cout << "Error al abrir el archivo" << endl;
     return;

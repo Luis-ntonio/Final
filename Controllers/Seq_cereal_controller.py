@@ -21,7 +21,7 @@ class Seq_cereal():
 
     def call_search1(self,rep, search1):
         self.principal.Form = QtWidgets.QWidget()
-        self.principal.ui = search1("cereal",rep)
+        self.principal.ui = search1("cereal",rep,"Seq")
         self.principal.ui.setupUi(self.principal.Form)
         self.principal.Form.show()
 
@@ -33,7 +33,7 @@ class Seq_cereal():
     
     def call_eliminar(self, eliminar):
         self.principal.Form = QtWidgets.QWidget()
-        self.principal.ui = eliminar("cereal")
+        self.principal.ui = eliminar("cereal","Seq")
         self.principal.ui.setupUi(self.principal.Form)
         self.principal.Form.show()
 

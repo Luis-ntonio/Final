@@ -21,13 +21,13 @@ class Din_fifa():
 
     def call_search1(self,rep, search1):
         self.principal.Form = QtWidgets.QWidget()
-        self.principal.ui = search1("fifa",rep)
+        self.principal.ui = search1("fifa",rep,"Din")
         self.principal.ui.setupUi(self.principal.Form)
         self.principal.Form.show()
     
     def call_eliminar(self, eliminar):
         self.principal.Form = QtWidgets.QWidget()
-        self.principal.ui = eliminar("fifa")
+        self.principal.ui = eliminar("fifa","Din")
         self.principal.ui.setupUi(self.principal.Form)
         self.principal.Form.show()
 

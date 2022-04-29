@@ -59,8 +59,8 @@ private:
 public:
   ExtendibleHashing(std::string filename)
   {
-    this->index_filename = filename + ".index.dat";
-    this->records_filename = filename + ".records.dat";
+    this->index_filename = "./" + filename + ".index.dat";
+    this->records_filename = "./" + filename + ".records.dat";
 
     std::ifstream file0(index_filename, std::ios::app);
     if (!file0.is_open())

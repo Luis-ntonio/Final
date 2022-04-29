@@ -29,7 +29,8 @@ struct Registros::CartaFifa
     char awr, dwr;
     int ovr, pac, sho, pas, dri, def, phy, sm, div, pos, han, ref, kic, spd;
     void readCSVLine(std::string st);
-    std::string writeCSVLine();
+    void readCSVLine2(char* st);
+    char* writeCSVLine(char* returned);
     size_t get_size() {
         return sizeof(id) + sizeof(foot) + sizeof(position) + sizeof(awr) + sizeof(dwr) + sizeof(ovr) + sizeof(pac) + sizeof(sho) + sizeof(pas) + sizeof(dri) + sizeof(def) + sizeof(phy) + sizeof(sm) + sizeof(div) + sizeof(pos) + sizeof(han) + sizeof(ref) + sizeof(kic) + sizeof(spd);
     }
@@ -72,7 +73,10 @@ void Registros::CartaFifa::readCSVLine(std::string st)
 {
     sscanf(st.c_str(),"%[^,],%c,%[^,],%[^,],%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d",&id,&foot,&position,&awr,&dwr,&ovr,&pac,&sho, &pas, &dri, &def, &phy, &sm, &div, &pos, &han, &ref, &kic, &spd);
 }
-
+void Registros::CartaFifa::readCSVLine2(char* st)
+{
+    sscanf(st,"%[^,],%c,%[^,],%[^,],%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d",&id,&foot,&position,&awr,&dwr,&ovr,&pac,&sho, &pas, &dri, &def, &phy, &sm, &div, &pos, &han, &ref, &kic, &spd);
+}
 /* Cereal */
 
 struct Registros::Cereal
@@ -85,6 +89,7 @@ struct Registros::Cereal
     int calories, protein, fat, sodium, fiber, carbo, sugars, potass, vitamins, shelf;
     float weight, cups, rating;
     void readCSVLine(std::string st);
+    void readCSVLine2(char* st);
     bool operator==(Registros::Cereal c);
     bool operator!=(Registros::Cereal c);
     bool operator<(Registros::Cereal c);
@@ -149,6 +154,11 @@ bool Registros::Cereal::operator<(Registros::Cereal c)
 void Registros::Cereal::readCSVLine(std::string st)
 {
     sscanf(st.c_str(), "%[^,],%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f,%f,%f", id, &mfr, &type, &calories, &protein, &fat, &sodium, &fiber, &carbo, &sugars, &potass, &vitamins, &shelf, &weight, &cups, &rating);
+}
+
+void Registros::Cereal::readCSVLine2(char* st)
+{
+    sscanf(st, "%[^,],%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f,%f,%f", id, &mfr, &type, &calories, &protein, &fat, &sodium, &fiber, &carbo, &sugars, &potass, &vitamins, &shelf, &weight, &cups, &rating);
 }
 
 #endif
