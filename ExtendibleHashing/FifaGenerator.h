@@ -13,7 +13,7 @@ char* Registros::CartaFifa::writeCSVLine(char* returned){
 
 char* readAt(long pos, char* returned) {
   Registros::CartaFifa fifa;
-  ifstream fin("./fifa.dat", ios::binary);
+  ifstream fin("fifa.dat", ios::binary);
   if (!fin.is_open()) throw ("File not open");
   fin.seekg(pos, ios::beg);
   fin >> fifa;

@@ -28,7 +28,12 @@ bool inserted(char* record, long pos) {
 
 extern "C"
 char* searched(char* id, char* aux) {
-    
+    if (!isBuilded) buildFifa();
+    ExtendibleHashing<size_t, 3, 3> eh("fifa");
+    size_t key = hash_fn_str(id);
+    Record <size_t> record = eh.search(key);
+    readAt(record.pos, aux);
+    cout<<"llegue hasta aqui";
     return aux;
 } // Like id in csv
 
