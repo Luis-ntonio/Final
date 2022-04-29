@@ -1,5 +1,5 @@
-#ifndef MENUSEQUENTIAL_H
-#define MENUSEQUENTIAL_H
+#ifndef MENUSEQUENTIAL_CPP
+#define MENUSEQUENTIAL_CPP
 
 #include "Sequential/SequentialFile.h"
 
@@ -20,21 +20,14 @@
 const std::string cereal = "cereal";
 const std::string fifa = "FIFA22_PlayerCards_Format";
 
-bool insert_S_Fifa(std::string line);
-std::string search_S_Fifa(std::string key);
-bool remove_S_Fifa(std::string key);
-std::string rangeSearch_S_Fifa(std::string inicio, std::string fin);
-
-bool insert_S_Cereal(std::string line);
-std::string search_S_Cereal(std::string key);
-bool remove_S_Cereal(std::string key);
-std::string rangeSearch_S_Cereal(std::string inicio, std::string fin);
 
 
 
-bool insert_S_Fifa(std::string line){
+extern "C"
+bool insert_S_Fifa(char* line){
+    std::string str(line);
     Registros::CartaFifa traduccion;
-    traduccion.readCSVLine(line);
+    traduccion.readCSVLine(str);
     SequentialFile<Registros::CartaFifa> sf(fifa);
     try{
         sf.add(traduccion);
@@ -44,23 +37,27 @@ bool insert_S_Fifa(std::string line){
     }
     return true;
 }
-
-std::string search_S_Fifa(std::string key){
+extern "C"
+void search_S_Fifa(char* key,char* result){
     SequentialFile<Registros::CartaFifa> sf(fifa);
     try{
+        std::string str(key);
         Registros::CartaFifa objetivo = sf.search(key);
-        return objetivo.writeCSVLine();
+        std::string retorno = objetivo.writeCSVLine();
+        result = &retorno[0];
+        
     }
     catch(...){
-        return "";
+        throw "error";
     }
 }
-
-bool remove_S_Fifa(std::string key){
+extern "C"
+bool remove_S_Fifa(char* key){
+    std::string str(key);
     SequentialFile<Registros::CartaFifa> sf(fifa);
     try
     {
-        sf.remove(key);
+        sf.remove(str);
     }
     catch(...)
     {
@@ -68,29 +65,35 @@ bool remove_S_Fifa(std::string key){
     }
     return true;
 }
-
-std::string rangeSearch_S_Fifa(std::string inicio, std::string fin){
+extern "C"
+void rangeSearch_S_Fifa(char* inicio, char* fin,char* result){
     SequentialFile<Registros::CartaFifa> sf(fifa);
     try
     {
-        std::vector<Registros::CartaFifa> listaRegistros = sf.rangeSearch(inicio, fin);
-        std::string result = "";
+        std::string start(inicio);
+        std::string end(fin);
+        std::vector<Registros::CartaFifa> listaRegistros = sf.rangeSearch(start, end);
+        std::string aux = "";
         for(Registros::CartaFifa i: listaRegistros){
-            result += i.writeCSVLine();
-            result += "\n";
+            aux.append(i.writeCSVLine());
+            aux.append("\n");
         }
-        return result;
+        
+        
+        result = &aux[0];
+        
     }
     catch(...)
     {
-        return "";
+        throw "error";
     }
 }
 
-
-bool insert_S_Cereal(std::string line){
+extern "C"
+bool insert_S_Cereal(char* line){
+    std::string str(line);
     Registros::Cereal traduccion;
-    traduccion.readCSVLine(line);
+    traduccion.readCSVLine(str);
     SequentialFile<Registros::Cereal> sf(cereal);
     try{
         sf.add(traduccion);
@@ -100,23 +103,29 @@ bool insert_S_Cereal(std::string line){
     }
     return true;
 }
-
-std::string search_S_Cereal(std::string key){
+extern "C"
+void search_S_Cereal(char* key, char* result){
     SequentialFile<Registros::Cereal> sf(cereal);
     try{
-        Registros::Cereal objetivo = sf.search(key);
-        return objetivo.writeCSVLine();
+        std::string str(key);
+        Registros::Cereal objetivo = sf.search(str);
+        std::string retorno = objetivo.writeCSVLine();
+        std::cout<<retorno;
+        
+        result = &retorno[0];
+        
     }
     catch(...){
-        return "";
+        throw "error";
     }
 }
-
+extern "C"
 bool remove_S_Cereal(std::string key){
+    std::string str(key);
     SequentialFile<Registros::Cereal> sf(cereal);
     try
     {
-        sf.remove(key);
+        sf.remove(str);
     }
     catch(...)
     {
@@ -124,22 +133,25 @@ bool remove_S_Cereal(std::string key){
     }
     return true;
 }
-
-std::string rangeSearch_S_Cereal(std::string inicio, std::string fin){
+extern "C"
+void rangeSearch_S_Cereal(char* inicio, char* fin, char* result){
     SequentialFile<Registros::Cereal> sf(cereal);
     try
     {
-        std::vector<Registros::Cereal> listaRegistros = sf.rangeSearch(inicio, fin);
-        std::string result = "";
+        std::string start(inicio);
+        std::string end(fin);
+        std::vector<Registros::Cereal> listaRegistros = sf.rangeSearch(start, end);
+        std::string aux = "";
         for(Registros::Cereal i: listaRegistros){
-            result += i.writeCSVLine();
-            result += "\n";
+            aux += i.writeCSVLine();
+            aux += "\n";
         }
-        return result;
+        result = &aux[0];
     }
     catch(...)
     {
-        return "";
+        throw "error";
     }
 }
+
 #endif
