@@ -31,11 +31,18 @@ struct Registros::CartaFifa
     bool operator<(Registros::CartaFifa c);
     bool operator>(Registros::CartaFifa c);
     char* writeCSVLine(char* aux);
+    char* writeCSVLine2(char*aux);
 };
 
 char* Registros::CartaFifa::writeCSVLine(char*aux){
     
     sprintf(aux, "%s,%c,%s,%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d", id, foot, position, awr, dwr, ovr, pac, sho, pas, dri, def, phy, sm, div, pos, han, ref, kic, spd);
+    
+    return aux;
+}
+char* Registros::CartaFifa::writeCSVLine2(char*aux){
+    
+    sprintf(aux, "%s,%c,%s,%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,'\n'", id, foot, position, awr, dwr, ovr, pac, sho, pas, dri, def, phy, sm, div, pos, han, ref, kic, spd);
     
     return aux;
 }
@@ -121,6 +128,7 @@ struct Registros::Cereal
     float weight, cups, rating;
     void readCSVLine(std::string st);
     char* writeCSVLine(char* result);
+    char* writeCSVLine2(char* result);
     bool operator==(Registros::Cereal c);
     bool operator!=(Registros::Cereal c);
     bool operator<(Registros::Cereal c);
@@ -130,6 +138,11 @@ struct Registros::Cereal
 char* Registros::Cereal::writeCSVLine(char* result){
     
     sprintf(result, "%s,%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f,%f,%f", id, mfr, type, calories, protein, fat, sodium, fiber, carbo, sugars, potass, vitamins, shelf, weight, cups, rating);
+    return result;
+}
+char* Registros::Cereal::writeCSVLine2(char* result){
+    
+    sprintf(result, "%s,%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f,%f,%f,'\n'", id, mfr, type, calories, protein, fat, sodium, fiber, carbo, sugars, potass, vitamins, shelf, weight, cups, rating);
     return result;
 }
 

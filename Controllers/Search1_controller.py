@@ -15,9 +15,10 @@ mylib = ctypes.CDLL(libfile)
 mylib.search_S_Fifa.restype = ctypes.c_char_p
 mylib.search_S_Fifa.argtypes = [ctypes.c_char_p,ctypes.c_char_p]
 
-aux = ctypes.create_string_buffer(150)
-x = mylib.search_S_Cereal(str("Pele").encode('utf-8'),aux)
-print(x)
+mylib.search_S_Cereal.restype = ctypes.c_char_p
+mylib.search_S_Cereal.argtypes = [ctypes.c_char_p,ctypes.c_char_p]
+
+
 class Search1():
     def __init__(self,tabla,table):
         self.table = table

@@ -24,8 +24,9 @@ const std::string fifa = "FIFA22_PlayerCards_Format";
 
 
 extern "C"
-bool insert_S_Fifa(std::string line){
+bool insert_S_Fifa(char* line){
     Registros::CartaFifa traduccion;
+    std::string str(line);
     traduccion.readCSVLine(line);
     SequentialFile<Registros::CartaFifa> sf(fifa);
     try{
@@ -56,6 +57,7 @@ char* search_S_Fifa(char* key,char* aux){
 extern "C"
 bool remove_S_Fifa(char* key){
     SequentialFile<Registros::CartaFifa> sf(fifa);
+    std::string str(key);
     try
     {
         sf.remove(key);
@@ -82,13 +84,14 @@ char* rangeSearch_S_Fifa(char* inicio, char* fin, char* result){
     }
     catch(...)
     {
-        return "";
+        throw "error";
     }
 }
 
 extern "C"
 bool insert_S_Cereal(char* line){
     Registros::Cereal traduccion;
+    std::string str(line);
     traduccion.readCSVLine(line);
     SequentialFile<Registros::Cereal> sf(cereal);
     try{
@@ -105,7 +108,7 @@ char* search_S_Cereal(char* key, char* result){
     try{
         std::string str(key);
         Registros::Cereal objetivo = sf.search(key);
-        objetivo.writeCSVLine(result);
+        char* retorno = objetivo.writeCSVLine(result);
         return result;
     }
     catch(...){
@@ -115,6 +118,7 @@ char* search_S_Cereal(char* key, char* result){
 extern "C"
 bool remove_S_Cereal(char* key){
     SequentialFile<Registros::Cereal> sf(cereal);
+    std::string str(key);
     try
     {
         sf.remove(key);
@@ -134,7 +138,7 @@ char* rangeSearch_S_Cereal(char* inicio, char* fin, char* result){
         std::vector<Registros::Cereal> listaRegistros = sf.rangeSearch(inicio, fin);
         std::string aux = "";
         for(Registros::Cereal i: listaRegistros){
-            i.writeCSVLine(result);
+            i.writeCSVLine2(result);
             
             
         }
@@ -147,7 +151,7 @@ char* rangeSearch_S_Cereal(char* inicio, char* fin, char* result){
 }
 int main(){
     char result [100];
-    rangeSearch_S_Fifa("1","1",result);
+    search_S_Cereal("Apple Cinnamon Cheerios", result);
     std::cout<<result;
 }
 #endif
