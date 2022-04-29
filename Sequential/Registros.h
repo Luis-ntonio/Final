@@ -120,14 +120,14 @@ struct Registros::Cereal
     int calories, protein, fat, sodium, fiber, carbo, sugars, potass, vitamins, shelf;
     float weight, cups, rating;
     void readCSVLine(std::string st);
-    std::string writeCSVLine(char* result);
+    char* writeCSVLine(char* result);
     bool operator==(Registros::Cereal c);
     bool operator!=(Registros::Cereal c);
     bool operator<(Registros::Cereal c);
     bool operator>(Registros::Cereal c);
 };
 
-std::string Registros::Cereal::writeCSVLine(char* result){
+char* Registros::Cereal::writeCSVLine(char* result){
     
     sprintf(result, "%s,%c,%c,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f,%f,%f", id, mfr, type, calories, protein, fat, sodium, fiber, carbo, sugars, potass, vitamins, shelf, weight, cups, rating);
     return result;

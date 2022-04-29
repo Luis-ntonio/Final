@@ -19,9 +19,9 @@ class Din_fifa():
         self.principal.Form.show()
         
 
-    def call_search1(self,table, search1):
+    def call_search1(self,rep, search1):
         self.principal.Form = QtWidgets.QWidget()
-        self.principal.ui = search1("fifa",table)
+        self.principal.ui = search1("fifa",rep)
         self.principal.ui.setupUi(self.principal.Form)
         self.principal.Form.show()
     

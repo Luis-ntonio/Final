@@ -101,7 +101,7 @@ class Ui_DInamyc_cereal(object):
         DInamyc_cereal.setStatusBar(self.statusbar)
 #-----------------------------------------------EVENTS---------------------------------------------------------------------------------#
         self.x = self.btn_insert.clicked.connect(lambda:self.connect.call_insert(Ui_insertar_cereal))
-        self.x = self.btn_search1.clicked.connect(lambda:self.connect.call_search1(Ui_search1))
+        self.x = self.btn_search1.clicked.connect(lambda:self.connect.call_search1(self,Ui_search1))
         self.x = self.btn_delete.clicked.connect(lambda:self.connect.call_eliminar(Ui_Delete))
         self.x = self.btn_back.clicked.connect(lambda:self.connect.call_back(self.parent, DInamyc_cereal))
 

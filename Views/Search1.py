@@ -18,8 +18,9 @@ from Controllers.Search1_controller import Search1
 
 
 class Ui_search1(object):
-    def __init__(self, table):
-        self.connect = Search1(table)
+    def __init__(self, table, rep):
+        
+        self.connect = Search1(table,rep)
     def setupUi(self, search1):
         search1.setObjectName("search1")
         search1.resize(217, 188)
@@ -47,7 +48,7 @@ class Ui_search1(object):
         self.titulo.raise_()
         self.layoutWidget.raise_()
 #-----------------------------------------------EVENT-----------------------------------------------------------------------#
-        self.x = self.btn_search.clicked.connect(lambda: self.connect.search1(self.input_valor.text(),search1))
+        self.x = self.btn_search.clicked.connect(lambda: self.connect.search1(self.input_valor.text(), search1))
 #---------------------------------------------END_EVENT---------------------------------------------------------------------#
 
         self.retranslateUi(search1)

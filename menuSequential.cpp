@@ -103,12 +103,13 @@ extern "C"
 char* search_S_Cereal(char* key, char* result){
     SequentialFile<Registros::Cereal> sf(cereal);
     try{
+        std::string str(key);
         Registros::Cereal objetivo = sf.search(key);
         objetivo.writeCSVLine(result);
         return result;
     }
     catch(...){
-        return "";
+        throw"error";
     }
 }
 extern "C"

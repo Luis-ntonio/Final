@@ -19,9 +19,9 @@ class Din_cereal():
         self.principal.Form.show()
         
 
-    def call_search1(self, search1):
+    def call_search1(self,rep, search1):
         self.principal.Form = QtWidgets.QWidget()
-        self.principal.ui = search1("cereal")
+        self.principal.ui = search1("cereal",rep)
         self.principal.ui.setupUi(self.principal.Form)
         self.principal.Form.show()
     
