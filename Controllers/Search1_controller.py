@@ -19,14 +19,15 @@ mylib.search_S_Fifa.argtypes = [ctypes.c_char_p,ctypes.c_char_p]
 
 
 class Search1():
-    def __init__(self,tabla):
+    def __init__(self,tabla,table):
+        self.table = table
         self.conn = select(connection,tabla)
-    def search1(self, valor, table, close):
+    def search1(self, valor, close):
         aux = ctypes.create_string_buffer(100)
         x = mylib.search_S_Fifa(str("Pele").encode('utf-8'),aux)
         x = x.decode('utf-8')
         x = x.split(',')
-        tabla = table
+        tabla = self.table
         tabla.setRowCount(0)
         for column_number, data in x:
             tabla.setItem(0,column_number,QtWidgets.QTableWidgetItem(data))
