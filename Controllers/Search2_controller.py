@@ -18,6 +18,11 @@ mylib.rangeSearch_S_Fifa.argtypes = [ctypes.c_char_p,ctypes.c_char_p,ctypes.c_ch
 mylib.rangeSearch_S_Cereal.restype = ctypes.c_char_p
 mylib.rangeSearch_S_Cereal.argtypes = [ctypes.c_char_p,ctypes.c_char_p,ctypes.c_char_p,ctypes.c_char_p]
 
+result = ctypes.create_string_buffer(10000)
+aux = ctypes.create_string_buffer(150)
+       
+x = mylib.rangeSearch_S_Cereal(str("Apple Cinnamon Cheerios").encode('utf-8'),str("Double Chex").encode('utf-8'),result,aux)
+print(result.value.decode())
 
 class Search2():
     def __init__(self,tabla,table):
@@ -29,10 +34,8 @@ class Search2():
     def search2(self, inicio, final, close):
         result = ctypes.create_string_buffer(10000)
         aux = ctypes.create_string_buffer(150)
-        if(self.tabla_ == "fifa"):
-            x = mylib.rangeSearch_S_Fifa(str(inicio).encode('utf-8'),str(final).encode('utf-8'),result,aux)
-        else:
-            x = mylib.rangeSearch_S_Cereal(str(inicio).encode('utf-8'),str(final).encode('utf-8'),result,aux)
+        
+        x = mylib.rangeSearch_S_Cereal(str(inicio).encode('utf-8'),str(final).encode('utf-8'),result,aux)
         
         x = x.decode('utf-8')
         x = x.split('|')

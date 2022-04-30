@@ -13,9 +13,9 @@ class select():
                 cursor.execute(sql)
                 self.conn.commit()
                 sql = """CREATE TABLE IF NOT EXISTS proyectotable
-                            (ID VARCHAR(10), Foot VARCHAR(2), Position VARCHAR(2), Awr VARCHAR(2), Dwr VARCHAR(2), Ovr VARCHAR(2),
-                            Pac VARCHAR(2), Sho VARCHAR(2), Pas VARCHAR(2), Dri VARCHAR(2), Def VARCHAR(2), Phy VARCHAR(2), Sm VARCHAR(2),
-                            Div VARCHAR(2), Pos VARCHAR(2), Han VARCHAR(2), Ref VARCHAR(2), Kic VARCHAR(2), Spd VARCHAR(2));"""
+                            (ID VARCHAR(10), Foot VARCHAR(2), Position VARCHAR(2), Awr_ VARCHAR(2), Dwr_ VARCHAR(2), Ovr_ VARCHAR(2),
+                            Pac_ VARCHAR(2), Sho_ VARCHAR(2), Pas_ VARCHAR(2), Dri_ VARCHAR(2), Def_ VARCHAR(2), Phy_ VARCHAR(2), Sm_ VARCHAR(2),
+                            Div_ VARCHAR(2), Pos_ VARCHAR(2), Han_ VARCHAR(2), Ref_ VARCHAR(2), Kic_ VARCHAR(2), Spd_ VARCHAR(2));"""
                 cursor.execute(sql)
                 self.conn.commit()
         elif (tabla == "btn_cereal" and create == 0):
