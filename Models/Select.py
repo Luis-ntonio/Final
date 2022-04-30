@@ -13,7 +13,9 @@ class select():
                 cursor.execute(sql)
                 self.conn.commit()
                 sql = """CREATE TABLE IF NOT EXISTS proyectotable
-                            (ID VARCHAR(10), Sobrevivio VARCHAR(2), Clase VARCHAR(2), Nombre_y_Apellido VARCHAR(90), Sexo VARCHAR(1), Edad INT, Sibsp VARCHAR(2), Parch VARCHAR(2));"""
+                            (ID VARCHAR(10), Foot VARCHAR(2), Position VARCHAR(2), Awr VARCHAR(2), Dwr VARCHAR(2), Ovr VARCHAR(2),
+                            Pac VARCHAR(2), Sho VARCHAR(2), Pas VARCHAR(2), Dri VARCHAR(2), Def VARCHAR(2), Phy VARCHAR(2), Sm VARCHAR(2),
+                            Div VARCHAR(2), Pos VARCHAR(2), Han VARCHAR(2), Ref VARCHAR(2), Kic VARCHAR(2), Spd VARCHAR(2));"""
                 cursor.execute(sql)
                 self.conn.commit()
         elif (tabla == "btn_cereal" and create == 0):
@@ -26,11 +28,3 @@ class select():
                             Azucares INT, Potasio INT, Vitaminas INT, Disposicion INT, Peso FLOAT, Tazas FLOAT, Rating FLOAT);"""
                 cursor.execute(sql)
                 self.conn.commit()
-    def search(self, cadena):
-        with self.conn.cursor() as cursor:
-            if(self.tabla == "fifa"):
-                
-                sql = """"""
-                cursor.execute(sql)
-                self.conn.commit()
-            

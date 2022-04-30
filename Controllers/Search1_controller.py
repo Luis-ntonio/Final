@@ -22,12 +22,6 @@ mylib.search_S_Fifa.argtypes = [ctypes.c_char_p,ctypes.c_char_p]
 mylib.search_S_Cereal.restype = ctypes.c_char_p
 mylib.search_S_Cereal.argtypes = [ctypes.c_char_p,ctypes.c_char_p]
 
-mylib2.searched.restype = ctypes.c_char_p
-mylib2.searched.argtypes = [ctypes.c_char_p,ctypes.c_char_p]
-
-aux  = ctypes.create_string_buffer(200)
-x = mylib2.searched(str("Pele").encode('utf-8'),aux)
-print(x)
 
 class Search1():
     def __init__(self,tabla,table,din_seq):

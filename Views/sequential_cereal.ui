@@ -101,7 +101,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:600; font-style:italic; text-decoration: underline;&quot;&gt;PROYECTO BASE DE DATOS 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="table">
+   <widget class="QTableWidget" name="tabla">
     <property name="geometry">
      <rect>
       <x>150</x>
@@ -112,104 +112,89 @@ p, li { white-space: pre-wrap; }
     </property>
     <column>
      <property name="text">
-      <string>Id</string>
+      <string>Nombre</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Foot</string>
+      <string>Manufacturer</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Position</string>
+      <string>Tipo</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Awr</string>
+      <string>Calorias</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Dwr</string>
+      <string>Proteinas</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Ovr</string>
+      <string>Grasa</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Pac</string>
+      <string>Sodio</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Sho</string>
+      <string>Fibra</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Pas</string>
+      <string>Carbohidratos</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Dri</string>
+      <string>Azucares</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Def</string>
+      <string>Potasio</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Phy</string>
+      <string>Vitaminas</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Sm</string>
+      <string>Disp. estanteria</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Div</string>
+      <string>Peso</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Pos</string>
+      <string>Tazas/porcion</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Han</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Ref</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Kic</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>Spd</string>
+      <string>Rating</string>
      </property>
     </column>
    </widget>
    <zorder>textBrowser</zorder>
    <zorder>layoutWidget_2</zorder>
    <zorder>titulo</zorder>
-   <zorder>table</zorder>
+   <zorder>tabla</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
